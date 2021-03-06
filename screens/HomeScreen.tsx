@@ -1,12 +1,21 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import image from "../assets/images/icon.png";
 
 import EditScreenInfo from "../components/EditScreenInfo";
+
+import Album from "../components/Album";
+
+const album = {
+  id: "1",
+  imageUrl: image,
+  artistHeadline: "Taylor Swift , king , margin",
+};
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={{ color: "white" }}>Home Screen</Text>
+      <Album album={album} />
     </View>
   );
 }
