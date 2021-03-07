@@ -1,21 +1,24 @@
 import * as React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import image from "../assets/images/icon.png";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 
 import Album from "../components/Album";
+import AlbumCategory from "../components/AlbumCatagory";
 
-const album = {
-  id: "1",
-  imageUrl: image,
-  artistHeadline: "Taylor Swift , king , margin",
-};
+import albumcatagories from "../data/dataCategories";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Album album={album} />
+      <FlatList
+        data={albumcatagories}
+        renderItem={({ item }) => (
+          <AlbumCategory title={item.title} albums={item.albums} />
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
